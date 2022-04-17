@@ -1,2 +1,0 @@
- 23.21.30.18
- ec2-23-21-30-18.compute-1.amazonaws.com
