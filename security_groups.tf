@@ -1,5 +1,5 @@
 resource "aws_security_group" "tf_public_sg" {
-  vpc_id = aws_vpc.tf_vpc.id
+  vpc_id = module.network.vpc_id
 
   ingress {
     description = "ssh"
@@ -22,14 +22,14 @@ resource "aws_security_group" "tf_public_sg" {
 }
 
 resource "aws_security_group" "tf_private_sg" {
-  vpc_id = aws_vpc.tf_vpc.id
+  vpc_id = module.network.vpc_id
 
   ingress {
     description = "ssh"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.vpc_cidr}"]
+    cidr_blocks = [module.network.vpc_cidr]
   }
 
   ingress {
@@ -37,7 +37,7 @@ resource "aws_security_group" "tf_private_sg" {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
-    cidr_blocks = ["${var.vpc_cidr}"]
+    cidr_blocks = [module.network.vpc_cidr]
   }
 
   egress {

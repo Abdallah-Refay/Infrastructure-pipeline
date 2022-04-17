@@ -6,10 +6,6 @@ variable "env" {
   type = string
 }
 
-variable "ubuntu_ami" {
-  type        = string
-  description = "The id of ubuntu AMI according to the region"
-}
 
 variable "region" {
   type = string
