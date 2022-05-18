@@ -1,30 +1,30 @@
 pipeline {
     agent any
-
+    tools {
+        terraform 'terraform'
+    }
     stages {
         stage('Pulling terraform repo') {
-                steps {
-                    git branch: 'master',
-            url: 'https://github.com/Abdallah-Refay/Terraform-getting-started.git'
-                }
+            steps {
+                git branch: 'master',
+                url: 'https://github.com/Abdallah-Refay/Terraform-getting-started.git'
+                sh './create_provisioner_dir.sh'
+            }
         }
 
-        stage('export secrets and credentials ans env variabels and applying terraform') {
+        stage('init and applying terraform') {
             steps {
                 withCredentials([
-                string(credentialsId: 'AWSAccessKeyId', variable: 'TF_VAR_AWS_ACCESS_KEY_ID'),
-                string(credentialsId: 'AWSSecretKey', variable: 'TF_VAR_AWS_SECRET_ACCESS_KEY'),
+                string(credentialsId: 'AWSAccessKeyId', variable: 'AWS_ACCESS_KEY_ID'),
+                string(credentialsId: 'AWSSecretKey', variable: 'AWS_SECRET_ACCESS_KEY'),
                 string(credentialsId: 'db_user', variable: 'TF_VAR_username'),
                 string(credentialsId: 'db_pass', variable: 'TF_VAR_password'),
                 ]) {
                     sh '''
-                    terraform -chdir=${JENKINS_HOME}/workspace/Terraform-getting-started -var-file prod.tfvars apply
+                    terraform fmt
+                    terraform init
+                    terraform apply -var-file prod.tfvars -auto-approve
                     '''
-                }
-            }
-
-            stage('applying terraform') {
-                steps {
                 }
             }
         }
