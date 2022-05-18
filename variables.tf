@@ -35,3 +35,20 @@ variable "private_subnet1_cidr" {
 variable "private_subnet2_cidr" {
   type = string
 }
+
+#rds variables 
+variable "db_engine" {}
+variable "engine_version" {}
+variable "instance_class" {}
+variable "name" {}
+variable "username" {
+  type = string
+}
+variable "password" {
+  type = string
+}
+variable "parameter_group_name" {}
+
+variable "redis_engine" {}
+variable "redis_node_type" {}
+

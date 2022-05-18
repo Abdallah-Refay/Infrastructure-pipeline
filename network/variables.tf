@@ -15,7 +15,6 @@ variable "availability_zone_names" {
 }
 
 
-
 variable "public_subnet1_cidr" {
   type = string
 }

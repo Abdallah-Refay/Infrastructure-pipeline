@@ -7,3 +7,12 @@ public_subnet1_cidr     = "10.0.1.0/24"
 public_subnet2_cidr     = "10.0.3.0/24"
 private_subnet1_cidr    = "10.0.4.0/24"
 private_subnet2_cidr    = "10.0.2.0/24"
+
+#RDS module Variables
+# engine               = "mysql"
+# engine_version       = "5.7"
+# instance_class       = "db.t2.micro"
+# name                 = "mydb"
+# username             = "admin"
+# password             = "password"
+# parameter_group_name = "default.mysql5.7"

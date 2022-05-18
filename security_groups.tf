@@ -51,3 +51,28 @@ resource "aws_security_group" "tf_private_sg" {
     Name = "tf_private"
   }
 }
+
+
+resource "aws_security_group" "security-db" {
+  name   = "security-db"
+  vpc_id = module.network.vpc_id
+
+  ingress {
+    description = "all all from vpc cidr"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [module.network.vpc_cidr]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${var.env}-security-db"
+  }
+}
