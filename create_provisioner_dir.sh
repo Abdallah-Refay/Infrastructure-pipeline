@@ -7,6 +7,6 @@ if [ -d ./provisioner ]
     then
     echo "provisioner directory already exists all good"
 else
-    mkdir provisioner
+    mkdir ./provisioner
     echo "provisioner directory created successfully"
 fi

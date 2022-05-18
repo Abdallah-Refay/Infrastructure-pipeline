@@ -51,4 +51,5 @@ variable "parameter_group_name" {}
 
 variable "redis_engine" {}
 variable "redis_node_type" {}
-
+# variable "AWS_ACCESS_KEY_ID" {}
+# variable "AWS_SECRET_ACCESS_KEY" {}

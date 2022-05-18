@@ -1,8 +1,6 @@
-dbpass.sh
-
+secrets.sh
 #Content of the output directory of local-exec provisioner like resource detailes, keys, etc ...
-./provisioner
-./provisioner/*
+/provisioner/**
 
 # Local .terraform directories
 **/.terraform/*
