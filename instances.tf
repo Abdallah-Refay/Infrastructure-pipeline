@@ -11,16 +11,16 @@ resource "aws_instance" "public1" {
 }
 
 
-resource "aws_instance" "public2" {
-  ami           = var.ubuntu_ami
-  instance_type = "t2.micro"
+# resource "aws_instance" "public2" {
+#   ami           = var.ubuntu_ami
+#   instance_type = "t2.micro"
 
-  vpc_security_group_ids = ["${aws_security_group.tf_public_sg.id}"]
-  subnet_id              = module.network.public_sub2_id
-  tags = {
-    Name = "public2"
-  }
-}
+#   vpc_security_group_ids = ["${aws_security_group.tf_public_sg.id}"]
+#   subnet_id              = module.network.public_sub2_id
+#   tags = {
+#     Name = "public2"
+#   }
+# }
 
 resource "aws_instance" "private1" {
   ami           = var.ubuntu_ami
