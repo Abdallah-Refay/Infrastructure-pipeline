@@ -20,6 +20,11 @@ resource "null_resource" "create_hosts_file" {
     command = "./create_ansible_hosts.sh ${aws_instance.private1.private_ip} ${aws_instance.private2.private_ip} ${aws_instance.public1.public_ip}"
   }
 
+   provisioner "local-exec" {
+    #this command prints the public ip and dns to the terminal and forward the output to a file in provisioner dir
+    command = "./create_ssh_config.sh ${aws_instance.private1.private_ip} ${aws_instance.private2.private_ip} ${aws_instance.public1.public_ip}"
+  }
+
 }
 
 

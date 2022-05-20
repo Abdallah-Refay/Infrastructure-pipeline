@@ -28,11 +28,11 @@ pipeline {
             }
         }
 
-        stage('testing ansible') {
-            steps {
-                sh 'ansible -m ping all -i Ansible/hosts'
-            }
-        }
+        // stage('testing ansible') {
+        //     steps {
+        //         sh 'ansible -m ping all -i Ansible/hosts'
+        //     }
+        // }
 
         stage('run ansible playbook') {
             steps {
