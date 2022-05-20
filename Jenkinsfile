@@ -33,5 +33,11 @@ pipeline {
                 sh 'ansible -m ping all -i Ansible/hosts'
             }
         }
+
+        stage('run ansible playbook') {
+            steps {
+                sh 'ansible-playbook Ansible/playbook.yaml -i Ansible/hosts' 
+            }
+        }
     }
 }

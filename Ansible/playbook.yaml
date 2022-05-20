@@ -1,0 +1,23 @@
+- name: confiure Slave Node
+  hosts: private
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: update cache
+      apt: update_cache=yes
+
+    - name: install default-jre
+      apt:
+        name: default-jre
+        state: present 
+    
+    - name: install docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: adding user to docker group
+      user:
+        name: "ubuntu"
+        groups: docker
+        append: yes
