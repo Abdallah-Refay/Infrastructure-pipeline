@@ -1,4 +1,4 @@
-tee ${JENKINS_HOME}/.ssh/config <<EOF
+tee ~/.ssh/config <<EOF
 Host $1
   ProxyCommand ssh -W %h:%p $3
   IdentityFile ${JENKINS_HOME}/workspace/terraform/provisioner/private_key.pem
