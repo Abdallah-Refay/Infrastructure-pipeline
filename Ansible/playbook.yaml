@@ -23,4 +23,5 @@
         append: yes
     
     - name: confiure node as agent
-      command: "java -jar agent.jar -jnlpUrl http://34.89.42.194/computer/private%2Dslave/jenkins-agent.jnlp -secret bb9589a1a8f6d2b3942629d6dbf4016853d80f8d38eca8a61d84102c688fbb7c -workDir \"/home/ubuntu\""
+      debug:
+        msg: "java -jar agent.jar -jnlpUrl http://34.89.42.194/computer/private%2Dslave/jenkins-agent.jnlp -secret bb9589a1a8f6d2b3942629d6dbf4016853d80f8d38eca8a61d84102c688fbb7c -workDir \"/home/ubuntu\""
