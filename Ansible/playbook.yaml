@@ -26,6 +26,11 @@
       get_url:
         url: http://35.216.139.94/jnlpJars/agent.jar
         dest: /home/ubuntu
+    
+    - name: copy .env file
+      copy:
+        src: /var/jenkins_home/workspace/terraform/provisioner/.env
+        dest: /home/ubuntu
 
     # - name: initiating connection
     #   shell: "java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/privateawy/jenkins-agent.jnlp -secret c98bfa78e76cb85f4b99e5b535e5873f5bab45cefa9c025c7c74615824c305cb -workDir /home/ubuntu &"

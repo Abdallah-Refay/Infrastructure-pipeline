@@ -30,7 +30,7 @@ pipeline {
 
         stage('run ansible playbook') {
             steps {
-                sh 'ansible-playbook Ansible/playbook.yaml -i Ansible/hosts' 
+                sh 'ansible-playbook Ansible/playbook.yaml -i Ansible/hosts'
             }
         }
     }
