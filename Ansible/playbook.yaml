@@ -25,6 +25,7 @@
     - name: download agent.jar file 
       get_url:
         url: http://35.216.139.94/jnlpJars/agent.jar
+        dest: /home/ubuntu
 
     - name: initiating connection
       debug:
