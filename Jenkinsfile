@@ -5,9 +5,9 @@ pipeline {
     }
 
     stages {
-        stage('run prequest scripts') {
+        stage('run prerequisite scripts') {
             steps {
-                sh './create_provisioner_dir.sh'
+                sh './scripts/create_provisioner_dir.sh'
             }
         }
 
@@ -27,12 +27,6 @@ pipeline {
                 }
             }
         }
-
-        // stage('testing ansible') {
-        //     steps {
-        //         sh 'ansible -m ping all -i Ansible/hosts'
-        //     }
-        // }
 
         stage('run ansible playbook') {
             steps {

@@ -16,5 +16,4 @@ Host bastion
   Hostname $3
   User ubuntu
   IdentityFile ${JENKINS_HOME}/workspace/terraform/provisioner/private_key.pem
-
 EOF
