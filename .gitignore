@@ -1,4 +1,6 @@
+#secrets variable script 
 secrets.sh
+
 #Content of the output directory of local-exec provisioner like resource detailes, keys, etc ...
 /provisioner/**
 

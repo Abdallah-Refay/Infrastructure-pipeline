@@ -1,5 +1,5 @@
 - name: confiure Slave Node
-  hosts: private[0]
+  hosts: private[1]
   remote_user: ubuntu
   become: true
   tasks:
@@ -27,5 +27,6 @@
         url: http://35.216.139.94/jnlpJars/agent.jar
         dest: /home/ubuntu
 
-    - name: initiating connection
-      shell: "java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private/jenkins-agent.jnlp -secret 966ad760b20b4af01f15878db892ecc46bec26b3d4e673abb975514c4f5078e7 -workDir /home/ubuntu &"
+    # - name: initiating connection
+    #   shell: "java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/privateawy/jenkins-agent.jnlp -secret c98bfa78e76cb85f4b99e5b535e5873f5bab45cefa9c025c7c74615824c305cb -workDir /home/ubuntu &"
+ 

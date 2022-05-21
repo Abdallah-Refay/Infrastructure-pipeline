@@ -1,16 +1,18 @@
 tee ~/.ssh/config <<EOF
-Host $1
+Host private1
   User ubuntu
-  ProxyCommand ssh -W %h:%p $3
+  HostName $1
+  ProxyCommand ssh -W %h:%p bastion
   IdentityFile ${JENKINS_HOME}/workspace/terraform/provisioner/private_key.pem
 
-Host $2
+Host private2
   User ubuntu
-  ProxyCommand ssh -W %h:%p $3
+  HostName $2
+  ProxyCommand ssh -W %h:%p bastion
   IdentityFile ${JENKINS_HOME}/workspace/terraform/provisioner/private_key.pem
 
 
-Host $3
+Host bastion
   Hostname $3
   User ubuntu
   IdentityFile ${JENKINS_HOME}/workspace/terraform/provisioner/private_key.pem
