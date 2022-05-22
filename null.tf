@@ -50,4 +50,17 @@ resource "null_resource" "rds_redis_env" {
   }
 }
 
+resource "null_resource" "lb_dns" {
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_lb.network_lb.dns_name} > ./provisioner/loadbalancer_dns"
+  }
+}
+
+
+
 
