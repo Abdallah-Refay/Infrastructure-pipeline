@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'master'
+    }
     tools {
         terraform 'terraform'
     }
@@ -28,9 +30,12 @@ pipeline {
             }
         }
 
-        stage('run ansible playbook') {
+        stage('run ansible playbooks') {
             steps {
-                sh 'ansible-playbook Ansible/playbook.yaml -i Ansible/hosts'
+                sh '''
+                ansible-playbook Ansible/playbook.yaml -i Ansible/hosts
+                ansible-playbook Ansible/connect.yaml -i Ansible/hosts
+                '''
             }
         }
     }
