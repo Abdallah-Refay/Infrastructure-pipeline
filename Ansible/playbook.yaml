@@ -1,5 +1,5 @@
 - name: confiure Slave Node
-  hosts: private[0]
+  hosts: private
   remote_user: ubuntu
   become: true
   tasks:
@@ -9,8 +9,8 @@
     - name: install default-jre
       apt:
         name: default-jre
-        state: present 
-    
+        state: present
+
     - name: install docker
       apt:
         name: docker.io
@@ -21,17 +21,19 @@
         name: "ubuntu"
         groups: docker
         append: yes
-    
-    - name: download agent.jar file 
+
+    - name: download agent.jar file
       get_url:
         url: http://35.216.139.94/jnlpJars/agent.jar
         dest: /home/ubuntu
-    
+
     - name: copy .env file
       copy:
         src: /var/jenkins_home/workspace/terraform/provisioner/.env
         dest: /home/ubuntu
 
     - name: initiating connection
-      shell: "java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private/jenkins-agent.jnlp -secret 966ad760b20b4af01f15878db892ecc46bec26b3d4e673abb975514c4f5078e7 -workDir /home/ubuntu &"
- 
+      become: false
+      shell: "java -jar /home/ubuntu/agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d -workDir /home/ubuntu &"
+      args:
+        executable: /usr/bin/bash
