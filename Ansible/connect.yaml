@@ -2,6 +2,20 @@
   hosts: private[0]
   remote_user: ubuntu
   become: true
+
   tasks:
+    - name: Give nedded permissions to remoting dir
+      ansible.builtin.file:
+        path: /home/ubuntu/remoting/   
+        owner: root
+        group: root
+        recurse: yes
+        mode: '0777'
+
+    - name: generate token file 
+      shell: echo d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d > secret-file
+
     - name: connection
-      shell: java -jar /home/ubuntu/agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d -workDir  /home/ubuntu &
+      shell: java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret @secret-file -workDir "/home/ubuntu"
+      async: 45
+      poll: 0

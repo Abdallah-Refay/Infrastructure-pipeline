@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh '''
                 ansible-playbook Ansible/playbook.yaml -i Ansible/hosts
-                ansible-playbook Ansible/connect.yaml -i Ansible/hosts
+                ansible-playbook Ansible/connect.yaml -i Ansible/hosts -vv
                 '''
             }
         }
