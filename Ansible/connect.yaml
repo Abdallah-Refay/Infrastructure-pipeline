@@ -15,7 +15,18 @@
     - name: Generate token file 
       shell: echo d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d > secret-file
 
-    - name: Initiating connection
-      shell: java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret @secret-file -workDir "/home/ubuntu"
-      async: 45
-      poll: 0
+    - name: copy service file
+      copy:
+        src: /var/jenkins_home/workspace/terraform/scripts/slave.service
+        dest: /etc/systemd/system/
+
+    - name: reread systemd configs
+      ansible.builtin.systemd:
+        daemon_reload: yes
+
+    - name: Run connection service 
+      ansible.builtin.systemd:
+        state: started
+        name: slave.service
+        enabled: yes
+    
