@@ -8,7 +8,7 @@ resource "aws_lb_target_group" "tf_lb_target_group" {
 
 resource "aws_lb_target_group_attachment" "priavte" {
   target_group_arn = aws_lb_target_group.tf_lb_target_group.arn
-  target_id        = aws_instance.private1.id
+  target_id        = [aws_instance.private1.id, aws_instance.private2.id]
   port             = 3000
 }
 

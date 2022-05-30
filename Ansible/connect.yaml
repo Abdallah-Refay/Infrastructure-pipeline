@@ -4,7 +4,4 @@
   become: true
   tasks:
     - name: connection
-      become: false
-      shell: "java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d -workDir /home/ubuntu &"
-      args:
-        executable: /usr/bin/bash
+      shell: "java -jar /home/ubuntu/agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d -workDir  /home/ubuntu &"

@@ -1,8 +1,8 @@
 vpc_cidr                = "192.0.0.0/16"
 env                     = "Prod"
-region                  = "eu-west-2"
-ubuntu_ami              = "ami-0b2834542914df958" #Ami for this region
-availability_zone_names = ["eu-west-2a", "eu-west-2b"]
+region                  = "eu-west-1"
+ubuntu_ami              = "ami-0551bf2a5bb48bc5c" #Ami for this region
+availability_zone_names = ["eu-west-1a", "eu-west-1b"]
 public_subnet1_cidr     = "192.0.1.0/24"
 public_subnet2_cidr     = "192.0.3.0/24"
 private_subnet1_cidr    = "192.0.0.0/24"

@@ -26,8 +26,16 @@
       get_url:
         url: http://35.216.139.94/jnlpJars/agent.jar
         dest: /home/ubuntu
+    
+    - name: removing .env file if exists
+      file:
+        path: /home/ubuntu/.env
+        state: absent
 
     - name: copy .env file
       copy:
         src: /var/jenkins_home/workspace/terraform/provisioner/.env
         dest: /home/ubuntu
+
+    - name: adding EC2_HOSTNAME to .env file
+      shell: "echo EC2_HOSTNAME=$HOSTNAME >> /home/ubuntu/.env"
