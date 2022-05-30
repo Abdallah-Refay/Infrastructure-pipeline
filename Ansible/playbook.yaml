@@ -38,4 +38,4 @@
         dest: /home/ubuntu
 
     - name: adding EC2_HOSTNAME to .env file
-      shell: "echo EC2_HOSTNAME=$HOSTNAME >> /home/ubuntu/.env"
+      shell: echo EC2_HOSTNAME=$HOSTNAME >> /home/ubuntu/.env
