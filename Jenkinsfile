@@ -22,7 +22,7 @@ pipeline {
                 string(credentialsId: 'db_pass', variable: 'TF_VAR_password'),
                 ]) {
                     sh '''
-                    terraform init
+                    terraform init -reconfigure
                     terraform apply -var-file prod.tfvars -auto-approve
                     '''
                 }
