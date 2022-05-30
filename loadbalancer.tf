@@ -6,9 +6,15 @@ resource "aws_lb_target_group" "tf_lb_target_group" {
 }
 
 
-resource "aws_lb_target_group_attachment" "priavte" {
+resource "aws_lb_target_group_attachment" "priavte1" {
   target_group_arn = aws_lb_target_group.tf_lb_target_group.arn
-  target_id        = [aws_instance.private1.id, aws_instance.private2.id]
+  target_id        = aws_instance.private1.id
+  port             = 3000
+}
+
+resource "aws_lb_target_group_attachment" "priavte2" {
+  target_group_arn = aws_lb_target_group.tf_lb_target_group.arn
+  target_id        = aws_instance.private2.id
   port             = 3000
 }
 
