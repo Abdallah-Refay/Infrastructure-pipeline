@@ -12,10 +12,10 @@
         recurse: yes
         mode: '0777'
 
-    - name: generate token file 
+    - name: Generate token file 
       shell: echo d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d > secret-file
 
-    - name: connection
+    - name: Initiating connection
       shell: java -jar agent.jar -jnlpUrl http://35.216.139.94/computer/private1/jenkins-agent.jnlp -secret @secret-file -workDir "/home/ubuntu"
       async: 45
       poll: 0
