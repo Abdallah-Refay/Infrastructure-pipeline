@@ -40,7 +40,6 @@ variable "private_subnet2_cidr" {
 variable "db_engine" {}
 variable "engine_version" {}
 variable "instance_class" {}
-variable "name" {}
 variable "username" {
   type = string
 }
@@ -51,5 +50,3 @@ variable "parameter_group_name" {}
 
 variable "redis_engine" {}
 variable "redis_node_type" {}
-# variable "AWS_ACCESS_KEY_ID" {}
-# variable "AWS_SECRET_ACCESS_KEY" {}

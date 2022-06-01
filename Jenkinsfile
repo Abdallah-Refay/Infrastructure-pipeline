@@ -22,8 +22,8 @@ pipeline {
                 string(credentialsId: 'db_pass', variable: 'TF_VAR_password'),
                 ]) {
                     sh '''
-                    terraform init
-                    terraform apply -var-file prod.tfvars -auto-approve
+                    terraform -chdir=terraform init
+                    terraform -chdir=terraform apply -var-file prod.tfvars -auto-approve
                     '''
                 }
             }
@@ -35,6 +35,18 @@ pipeline {
                 ansible-playbook Ansible/playbook.yaml -i Ansible/hosts
                 ansible-playbook Ansible/connect.yaml -i Ansible/hosts -vv
                 '''
+            }
+        }
+
+        stage('Invoke node_app private1 pipeline') {
+            steps {
+                build job: 'node_app private1'
+            }
+        }
+
+        stage('Invoke node_app private2 pipeline') {
+            steps {
+                build job: 'node_app private2'
             }
         }
     }

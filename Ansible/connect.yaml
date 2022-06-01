@@ -4,7 +4,7 @@
   become: true
 
   tasks:
-    - name: Give nedded permissions to remoting dir
+    - name: Giving nedded permissions to remoting dir
       ansible.builtin.file:
         path: /home/ubuntu/remoting/   
         owner: root
@@ -12,7 +12,7 @@
         recurse: yes
         mode: '0777'
 
-    - name: Generate token file 
+    - name: Create token file
       shell: echo d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d > secret-file
 
     - name: copy service file
@@ -24,7 +24,7 @@
       ansible.builtin.systemd:
         daemon_reload: yes
 
-    - name: Run connection service 
+    - name: Start and enable connection service 
       ansible.builtin.systemd:
         state: started
         name: slave.service

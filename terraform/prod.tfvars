@@ -12,7 +12,6 @@ private_subnet2_cidr    = "192.0.2.0/24"
 db_engine            = "mysql"
 engine_version       = "5.7"
 instance_class       = "db.t2.micro"
-name                 = "mydb"
 parameter_group_name = "default.mysql5.7"
 
 redis_engine         = "redis"

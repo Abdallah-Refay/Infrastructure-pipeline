@@ -12,7 +12,6 @@ resource "aws_db_instance" "mysql_instance" {
   engine_version = var.engine_version
   # Declaring the instance class
   instance_class       = var.instance_class
-  name                 = var.name
   db_subnet_group_name = aws_db_subnet_group.db-sub-groub.name
   # User to connect the database instance 
   username = var.username
