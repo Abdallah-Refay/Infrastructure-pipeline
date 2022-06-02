@@ -1,4 +1,4 @@
-tee ./Ansible/hosts <<EOF
+tee ../Ansible/hosts <<EOF
 [public]
 $3 
 

@@ -1,4 +1,4 @@
-tee ./provisioner/.env <<EOF
+tee ../provisioner/.env <<EOF
 RDS_HOSTNAME=$1
 RDS_USERNAME=$2
 RDS_PASSWORD=$3
