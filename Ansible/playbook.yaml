@@ -34,7 +34,7 @@
 
     - name: copy .env file
       copy:
-        src: /var/jenkins_home/workspace/terraform/provisioner/.env
+        src: ../provisioner/.env
         dest: /home/ubuntu
 
     - name: adding EC2_HOSTNAME to .env file

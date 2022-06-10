@@ -43,7 +43,7 @@ resource "null_resource" "private_key" {
   }
   provisioner "local-exec" {
     #echo priavte key to /provisioner/private_key.pem and give it needed permissions
-    command = "echo '${tls_private_key.encryption.private_key_pem}' > ../provisioner/private_key.pem && chmod 600 ../provisioner/private_key.pem"
+    command = "echo '${tls_private_key.encryption.private_key_pem}' > ~/.ssh/private_key.pem && chmod 400 ~/.ssh/private_key.pem"
   }
 }
 
