@@ -24,7 +24,6 @@ docker run refay/jenkins_master:1.0
 ```
 
 ## Tools configuration on jenkins
-<hr>
 
 **Note**: that other versions of tools or plugins may work but I mentioned the versions that worked for me.
 <br><br>
@@ -55,7 +54,6 @@ after installing ansible you need to provide the binary path in the global tool 
 <br>
 
 ## 🔗 Feedback
-<hr>
 
 📧 abdallah.refay2000@gmail.com
 

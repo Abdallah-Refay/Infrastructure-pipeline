@@ -12,9 +12,11 @@
         recurse: yes
         mode: '0777'
 
-    - name: Create token file
-      shell: echo d690c73565df156f3c7fd3330f065533cc5af1fc1f801951da3c139d8effb97d > secret-file
-
+    - name: copy agent secret file
+      copy:
+        src: ~/secrets/secret-file
+        dest: /home/ubuntu
+        
     - name: copy service file
       copy:
         src: ../scripts/slave.service
