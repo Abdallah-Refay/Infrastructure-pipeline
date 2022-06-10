@@ -35,5 +35,5 @@ Load balancer that targets the 2 private instance that exposes the node app on p
 ## Security groups:
 Mainly controls ingress connection on public and private instances on specific ports.
  
- 
-
+## Null resources:
+Responsible for invoking some scripts that generates following files (ansible hosts, ssh config file) and exporting the private key.

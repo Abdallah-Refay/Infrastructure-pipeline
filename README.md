@@ -60,7 +60,7 @@ after installing ansible you need to provide the binary path in the global tool 
  
 ## 🔗 Feedback
  
-📧 abdallah.refay2000@gmail.com
+📧 abdallah.refaay2000@gmail.com
  
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdallah-refaay/)
  
