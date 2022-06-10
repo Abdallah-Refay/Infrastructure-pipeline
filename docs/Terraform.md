@@ -15,10 +15,12 @@ Terraform infrastructure as code provisions the following:
 * route tables
 * 2 private subnets and 1 public subnet
 <br>
+
 ## reds_redis module:
 * db.t2.micro RDS Instance running mysql engine
 * AWS elasticache cluster with single cache.t2.micro instance
 <br>
+
 ## instances:
 * public t2.micro ec2 in the public subnet
 * private t2.micro ec2 in the private subnet1
@@ -29,6 +31,7 @@ Terraform infrastructure as code provisions the following:
 ## Network load balancer:
 Load balancer that targets the 2 private instance that exposes the node app on port 3000
 <br><br>
+
 ## Security groups:
 Mainly controls ingress connection on public and private instances on specific ports.
  
