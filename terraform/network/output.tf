@@ -10,9 +10,9 @@ output "public_sub1_id" {
   value = aws_subnet.tf_public_subnet1.id
 }
 
-output "public_sub2_id" {
-  value = aws_subnet.tf_public_subnet2.id
-}
+# output "public_sub2_id" {
+#   value = aws_subnet.tf_public_subnet2.id
+# }
 
 output "private_sub1_id" {
   value = aws_subnet.tf_private_subnet1.id
